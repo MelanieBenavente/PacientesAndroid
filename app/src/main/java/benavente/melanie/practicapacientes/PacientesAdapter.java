@@ -45,7 +45,6 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
         holder.buttonHistorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Bienvenido al historial de" + pacienteActual.getNombre(), Toast.LENGTH_SHORT).show();
                 patientInterface.showDetailPatient(pacienteActual);
             }
         });
