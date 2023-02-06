@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import benavente.melanie.practicapacientes.databinding.ActivityMainBinding;
 import benavente.melanie.practicapacientes.databinding.MainListFragmentBinding;
 
 public class MainListFragment extends Fragment {
@@ -44,7 +43,7 @@ public class MainListFragment extends Fragment {
         pacienteList.add(new Paciente("Tona", 17, false));
         pacienteList.add(new Paciente("Lali", 22, false));
 
-        binding.recyclerPaciente.setAdapter(new PacientesAdapter(pacienteList, ((PatientInterface)getActivity())));
+        binding.recyclerPaciente.setAdapter(new PacientesAdapter(pacienteList, ((PatientItemInterface)getActivity())));
         binding.recyclerPaciente.setLayoutManager(new GridLayoutManager(getContext(), 3));
     }
 }

@@ -1,5 +1,5 @@
 package benavente.melanie.practicapacientes;
 
-public interface PatientInterface {
+public interface PatientItemInterface {
     void showDetailPatient(Paciente paciente);
 }

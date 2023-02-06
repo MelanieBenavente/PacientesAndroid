@@ -1,21 +1,10 @@
 package benavente.melanie.practicapacientes;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.GridLayoutManager;
 
-import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.View;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import benavente.melanie.practicapacientes.databinding.ActivityMainBinding;
-
-public class MainActivity extends AppCompatActivity implements PatientInterface{
+public class MainActivity extends AppCompatActivity implements PatientItemInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
