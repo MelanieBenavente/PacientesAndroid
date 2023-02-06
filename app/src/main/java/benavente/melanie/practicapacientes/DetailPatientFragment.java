@@ -1,10 +1,22 @@
 package benavente.melanie.practicapacientes;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class DetailPatientFragment extends Fragment {
 
-    public DetailPatientFragment() {
-        super(R.layout.detail_patient_fragment);
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.detail_patient_fragment, container, false);
+        return rootView;
     }
+
+
 }

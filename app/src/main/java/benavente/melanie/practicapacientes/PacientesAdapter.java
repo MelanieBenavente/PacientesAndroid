@@ -47,6 +47,12 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
                 patientItemInterface.showDetailPatient(pacienteActual);
             }
         });
+        holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                patientItemInterface.deletePatient(pacienteActual);
+            }
+        });
     }
 
 
@@ -61,6 +67,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
         TextView textViewEdad;
         TextView textViewEstado;
         Button buttonHistorial;
+        Button buttonDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +76,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
             textViewEdad = itemView.findViewById(R.id.edadPaciente);
             textViewEstado = itemView.findViewById(R.id.estadoPaciente);
             buttonHistorial = itemView.findViewById(R.id.buttonHistorial);
+            buttonDelete = itemView.findViewById(R.id.buttonDelete);
         }
     }
 }

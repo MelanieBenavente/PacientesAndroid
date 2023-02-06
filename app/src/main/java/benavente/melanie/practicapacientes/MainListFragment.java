@@ -15,7 +15,7 @@ import java.util.List;
 
 import benavente.melanie.practicapacientes.databinding.MainListFragmentBinding;
 
-public class MainListFragment extends Fragment {
+public class MainListFragment extends Fragment implements PatientItemInterface  {
     private MainListFragmentBinding binding;
     private List<Paciente> pacienteList= new ArrayList<>();
 
@@ -35,6 +35,7 @@ public class MainListFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        pacienteList = new ArrayList<>();
         pacienteList.add(new Paciente("Paco", 15, true));
         pacienteList.add(new Paciente("Marc", 11, false));
         pacienteList.add(new Paciente("Toni", 10, true));
@@ -43,7 +44,18 @@ public class MainListFragment extends Fragment {
         pacienteList.add(new Paciente("Tona", 17, false));
         pacienteList.add(new Paciente("Lali", 22, false));
 
-        binding.recyclerPaciente.setAdapter(new PacientesAdapter(pacienteList, ((PatientItemInterface)getActivity())));
+        binding.recyclerPaciente.setAdapter(new PacientesAdapter(pacienteList, this));
         binding.recyclerPaciente.setLayoutManager(new GridLayoutManager(getContext(), 3));
+    }
+
+    @Override
+    public void showDetailPatient(Paciente paciente) {
+        ((MainActivity)getActivity()).nextFragment(new DetailPatientFragment());
+    }
+
+    @Override
+    public void deletePatient(Paciente paciente) {
+        pacienteList.remove(paciente);
+        binding.recyclerPaciente.getAdapter().notifyDataSetChanged();
     }
 }

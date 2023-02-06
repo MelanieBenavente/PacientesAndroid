@@ -1,10 +1,11 @@
 package benavente.melanie.practicapacientes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity implements PatientItemInterface {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,10 +15,14 @@ public class MainActivity extends AppCompatActivity implements PatientItemInterf
 
     }
 
-    @Override
-    public void showDetailPatient(Paciente paciente) {
+    public void nextFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, DetailPatientFragment.class, null)
+                .add(R.id.container, fragment, null)
+                .addToBackStack(fragment.getTag())
                 .commit();
     }
+
+
+
+
 }
