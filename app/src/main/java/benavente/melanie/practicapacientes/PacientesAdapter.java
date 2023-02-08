@@ -53,7 +53,15 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
                 patientItemInterface.deletePatient(pacienteActual);
             }
         });
+
+        holder.buttonDuplicate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                patientItemInterface.duplicatePatient(pacienteActual);
+            }
+        });
     }
+
 
 
     @Override
@@ -68,6 +76,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
         TextView textViewEstado;
         Button buttonHistorial;
         Button buttonDelete;
+        Button buttonDuplicate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,6 +86,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
             textViewEstado = itemView.findViewById(R.id.estadoPaciente);
             buttonHistorial = itemView.findViewById(R.id.buttonHistorial);
             buttonDelete = itemView.findViewById(R.id.buttonDelete);
+            buttonDuplicate = itemView.findViewById(R.id.buttonDuplicate);
         }
     }
 }

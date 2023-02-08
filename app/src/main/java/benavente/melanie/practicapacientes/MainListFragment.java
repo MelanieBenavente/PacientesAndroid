@@ -58,4 +58,11 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
         pacienteList.remove(paciente);
         binding.recyclerPaciente.getAdapter().notifyDataSetChanged();
     }
+
+    @Override
+    public void duplicatePatient(Paciente paciente) {
+        pacienteList.add(paciente);
+        binding.recyclerPaciente.getAdapter().notifyItemInserted(pacienteList.size()-1);
+
+    }
 }
