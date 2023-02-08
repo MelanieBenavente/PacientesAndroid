@@ -13,18 +13,35 @@
         android:hint="Nombre paciente"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/edit_text_edad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Edad paciente"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_nombre" />
+
+    <CheckBox
+        android:id="@+id/checkbox_estado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingresado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/anadirButton"
+        />
+
     <Button
         android:id="@+id/anadirButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Añadir"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_nombre" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPaciente"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

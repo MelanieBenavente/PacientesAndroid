@@ -46,6 +46,13 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
 
         binding.recyclerPaciente.setAdapter(new PacientesAdapter(pacienteList, this));
         binding.recyclerPaciente.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        binding.anadirButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pacienteList.add(new Paciente(binding.editTextNombre.getText().toString(), Integer.valueOf(binding.editTextEdad.getText().toString()), binding.checkboxEstado.isChecked()));
+                binding.recyclerPaciente.getAdapter().notifyItemInserted(pacienteList.size()-1);
+            }
+        });
     }
 
     @Override
