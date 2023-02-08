@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -49,8 +50,12 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
         binding.anadirButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (binding.editTextEdad.getText().toString().equals("")) {
+                    Toast.makeText(getContext(), "Debes de introducir una edad", Toast.LENGTH_SHORT).show();
+
+                } else {
                 pacienteList.add(new Paciente(binding.editTextNombre.getText().toString(), Integer.valueOf(binding.editTextEdad.getText().toString()), binding.checkboxEstado.isChecked()));
-                binding.recyclerPaciente.getAdapter().notifyItemInserted(pacienteList.size()-1);
+                binding.recyclerPaciente.getAdapter().notifyItemInserted(pacienteList.size()-1);}
             }
         });
     }
