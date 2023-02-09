@@ -10,21 +10,21 @@
         android:id="@+id/edit_text_nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre paciente"
+        android:hint="@string/nombre_paciente"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_text_edad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Edad paciente"
+        android:hint="@string/edad_paciente"
         app:layout_constraintTop_toBottomOf="@id/edit_text_nombre" />
 
     <CheckBox
         android:id="@+id/checkbox_estado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ingresado"
+        android:text="@string/ingresado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/anadirButton"
         />
@@ -33,9 +33,10 @@
         android:id="@+id/anadirButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Añadir"
+        android:text="@string/anadir"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_nombre" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_nombre"
+        />
 
 
     <androidx.recyclerview.widget.RecyclerView
