@@ -1,4 +1,4 @@
-package benavente.melanie.practicapacientes;
+package benavente.melanie.practicapacientes.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,22 +9,26 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import benavente.melanie.practicapacientes.databinding.MainListFragmentBinding;
+import benavente.melanie.practicapacientes.domain.Paciente;
 
 public class MainListFragment extends Fragment implements PatientItemInterface  {
     private MainListFragmentBinding binding;
-    private List<Paciente> pacienteList= new ArrayList<>();
+
+    private PacienteViewModel viewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = MainListFragmentBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
+        configureView();
         return view;
     }
 
@@ -36,16 +40,9 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
     @Override
     public void onResume() {
         super.onResume();
-        pacienteList = new ArrayList<>();
-        pacienteList.add(new Paciente("Paco", 15, true));
-        pacienteList.add(new Paciente("Marc", 11, false));
-        pacienteList.add(new Paciente("Toni", 10, true));
-        pacienteList.add(new Paciente("Sara", 21, false));
-        pacienteList.add(new Paciente("Alba", 71, true));
-        pacienteList.add(new Paciente("Tona", 17, false));
-        pacienteList.add(new Paciente("Lali", 22, false));
 
-        binding.recyclerPaciente.setAdapter(new PacientesAdapter(pacienteList, this));
+
+        binding.recyclerPaciente.setAdapter(new PacientesAdapter(viewModel.getpacienteList().getValue(), this));
         binding.recyclerPaciente.setLayoutManager(new GridLayoutManager(getContext(), 3));
         binding.anadirButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,10 +51,23 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
                     Toast.makeText(getContext(), "Debes de introducir una edad", Toast.LENGTH_SHORT).show();
 
                 } else {
-                pacienteList.add(new Paciente(binding.editTextNombre.getText().toString(), Integer.valueOf(binding.editTextEdad.getText().toString()), binding.checkboxEstado.isChecked()));
-                binding.recyclerPaciente.getAdapter().notifyItemInserted(pacienteList.size()-1);}
+                viewModel.addPaciente(new Paciente(binding.editTextNombre.getText().toString(), Integer.valueOf(binding.editTextEdad.getText().toString()), binding.checkboxEstado.isChecked()));
+                binding.recyclerPaciente.getAdapter().notifyItemInserted(viewModel.getpacienteList().getValue().size()-1);}
             }
         });
+    }
+    private void configureView() {
+        viewModel = ViewModelProviders.of(this).get(PacienteViewModel.class);
+
+
+        final Observer<List<Paciente>> observer = new Observer<List<Paciente>>() {
+            @Override
+            public void onChanged(List<Paciente> pacientes) {
+                //todo actualizarrecyclerview
+            }
+        };
+
+        viewModel.getpacienteList().observe(getActivity(), observer);
     }
 
     @Override
@@ -67,14 +77,14 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
 
     @Override
     public void deletePatient(Paciente paciente) {
-        pacienteList.remove(paciente);
+        viewModel.deletePaciente(paciente);
         binding.recyclerPaciente.getAdapter().notifyDataSetChanged();
     }
 
     @Override
     public void duplicatePatient(Paciente paciente) {
-        pacienteList.add(paciente);
-        binding.recyclerPaciente.getAdapter().notifyItemInserted(pacienteList.size()-1);
+        viewModel.addPaciente(paciente);
+        binding.recyclerPaciente.getAdapter().notifyItemInserted(viewModel.getpacienteList().getValue().size()-1);
 
     }
 }

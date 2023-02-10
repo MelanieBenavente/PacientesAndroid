@@ -1,9 +1,11 @@
-package benavente.melanie.practicapacientes;
+package benavente.melanie.practicapacientes.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+
+import benavente.melanie.practicapacientes.R;
 
 public class MainActivity extends AppCompatActivity{
 

@@ -1,4 +1,4 @@
-package benavente.melanie.practicapacientes;
+package benavente.melanie.practicapacientes.ui;
 
 
 import android.content.Context;
@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import benavente.melanie.practicapacientes.R;
+import benavente.melanie.practicapacientes.domain.Paciente;
 
 public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.ViewHolder> {
     private List<Paciente> pacientes;

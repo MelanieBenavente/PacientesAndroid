@@ -1,4 +1,4 @@
-package benavente.melanie.practicapacientes;
+package benavente.melanie.practicapacientes.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import benavente.melanie.practicapacientes.R;
 
 public class DetailPatientFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package benavente.melanie.practicapacientes;
+package benavente.melanie.practicapacientes.domain;
 
 public class Paciente {
     private String nombre;
