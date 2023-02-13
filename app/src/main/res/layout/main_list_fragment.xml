@@ -25,27 +25,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/ingresado"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/anadirButton"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_edad"
         />
 
     <Button
         android:id="@+id/anadirButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/anadir"
+        android:text="Añadir paciente"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_edad"
+        app:layout_constraintBottom_toTopOf="@id/recyclerPaciente"
         />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPaciente"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/anadirButton" />
+        app:layout_constraintTop_toBottomOf="@id/checkbox_estado" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

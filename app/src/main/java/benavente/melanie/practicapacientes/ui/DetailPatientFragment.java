@@ -10,16 +10,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import benavente.melanie.practicapacientes.R;
+import benavente.melanie.practicapacientes.databinding.DetailPatientFragmentBinding;
+import benavente.melanie.practicapacientes.databinding.MainListFragmentBinding;
 
 public class DetailPatientFragment extends Fragment {
     //todo private Noseque binding
+    private DetailPatientFragmentBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.detail_patient_fragment, container, false);
-        //todo binding = loquesea
-        return rootView;
+        binding = DetailPatientFragmentBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
 
 
