@@ -11,6 +11,7 @@ import benavente.melanie.practicapacientes.domain.Paciente;
 public class PacienteViewModel extends ViewModel {
 
     private MutableLiveData<List<Paciente>> pacienteList;
+    private Paciente actualPatient = null;
 
     public PacienteViewModel(){
         pacienteList = new MutableLiveData<>();
@@ -43,5 +44,13 @@ public class PacienteViewModel extends ViewModel {
         List<Paciente> temporaryList = pacienteList.getValue();
         temporaryList.remove(paciente);
         pacienteList.setValue(temporaryList);
+    }
+
+    public Paciente getActualPatient() {
+        return actualPatient;
+    }
+
+    public void setActualPatient(Paciente actualPatient) {
+        this.actualPatient = actualPatient;
     }
 }

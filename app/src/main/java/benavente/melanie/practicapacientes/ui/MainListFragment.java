@@ -33,11 +33,6 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
 
@@ -52,18 +47,21 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
 
                 } else {
                 viewModel.addPaciente(new Paciente(binding.editTextNombre.getText().toString(), Integer.valueOf(binding.editTextEdad.getText().toString()), binding.checkboxEstado.isChecked()));
-                binding.recyclerPaciente.getAdapter().notifyItemInserted(viewModel.getpacienteList().getValue().size()-1);}
+                //binding.recyclerPaciente.getAdapter().notifyItemInserted(viewModel.getpacienteList().getValue().size()-1);
+                    }
             }
         });
     }
     private void configureView() {
-        viewModel = ViewModelProviders.of(this).get(PacienteViewModel.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(PacienteViewModel.class);
 
 
         final Observer<List<Paciente>> observer = new Observer<List<Paciente>>() {
             @Override
             public void onChanged(List<Paciente> pacientes) {
-                //todo actualizarrecyclerview
+                if (pacientes != null && binding.recyclerPaciente != null && binding.recyclerPaciente.getAdapter() != null){
+                    binding.recyclerPaciente.getAdapter().notifyDataSetChanged();
+                }
             }
         };
 
@@ -72,19 +70,18 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
 
     @Override
     public void showDetailPatient(Paciente paciente) {
+        viewModel.setActualPatient(paciente);
         ((MainActivity)getActivity()).nextFragment(new DetailPatientFragment());
     }
 
     @Override
     public void deletePatient(Paciente paciente) {
         viewModel.deletePaciente(paciente);
-        binding.recyclerPaciente.getAdapter().notifyDataSetChanged();
     }
 
     @Override
     public void duplicatePatient(Paciente paciente) {
         viewModel.addPaciente(paciente);
-        binding.recyclerPaciente.getAdapter().notifyItemInserted(viewModel.getpacienteList().getValue().size()-1);
-
+        //binding.recyclerPaciente.getAdapter().notifyItemInserted(viewModel.getpacienteList().getValue().size()-1);
     }
 }
