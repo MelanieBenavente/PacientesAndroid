@@ -5,16 +5,52 @@
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
+        android:id="@+id/nombrePaciente"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="255dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/blue_beaut"
-        android:text="hooa">
+        android:text="Nombre" />
 
-    </TextView>
+    <TextView
+        android:id="@+id/edadPaciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/checkbox_estado"
+        app:layout_constraintTop_toBottomOf="@id/nombrePaciente"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/blue_beaut"
+        android:text="Edad" />
+
+    <CheckBox
+        android:id="@+id/checkbox_estado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="El paciente está ingresado"
+        app:layout_constraintTop_toBottomOf="@id/edadPaciente"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonSave"
+        android:buttonTint="@color/blue_beaut"
+        android:textColor="@color/blue_beaut"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_estado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/blue_gradient"/>
 
 
 
