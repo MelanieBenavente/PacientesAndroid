@@ -5,10 +5,13 @@ public class Paciente {
     private int edad;
     private boolean ingresado;
 
- public Paciente(String nombre, int edad, boolean ingresado) {
+    private int id;
+
+ public Paciente(String nombre, int edad, boolean ingresado, int id) {
      this.nombre = nombre;
      this.edad = edad;
      this.ingresado = ingresado;
+     this.id = id;
  }
 
  public String getNombre(){
@@ -26,8 +29,10 @@ public void setEdad(int edad) {
     public boolean getIngresado() {
      return ingresado;
     }
-
 public void setIngresado(boolean ingresado){
      this.ingresado = ingresado;
     }
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id=id; }
 }

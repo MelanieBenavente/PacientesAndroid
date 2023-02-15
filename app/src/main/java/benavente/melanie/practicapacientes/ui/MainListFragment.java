@@ -46,8 +46,10 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
                     Toast.makeText(getContext(), "Debes de introducir una edad", Toast.LENGTH_SHORT).show();
 
                 } else {
-                viewModel.addPaciente(new Paciente(binding.editTextNombre.getText().toString(), Integer.valueOf(binding.editTextEdad.getText().toString()), binding.checkboxEstado.isChecked()));
-                //binding.recyclerPaciente.getAdapter().notifyItemInserted(viewModel.getpacienteList().getValue().size()-1);
+                viewModel.addPaciente(new Paciente(binding.editTextNombre.getText().toString(),
+                        Integer.valueOf(binding.editTextEdad.getText().toString()),
+                        binding.checkboxEstado.isChecked(),
+                        viewModel.getpacienteList().getValue().size()+1));
                     }
             }
         });

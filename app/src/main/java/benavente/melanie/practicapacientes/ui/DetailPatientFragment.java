@@ -33,8 +33,23 @@ public class DetailPatientFragment extends Fragment {
     public void onResume() {
         super.onResume();
         configureView();
+        initListeners();
     }
 
+    private void initListeners() {
+        binding.buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Paciente pacienteModificado = new Paciente(binding.nombrePaciente.getText().toString(),
+                        Integer.valueOf(binding.edadPaciente.getText().toString()),
+                        binding.checkboxEstado.isChecked(),
+                        viewModel.getActualPatient().getValue().getId()
+
+                );
+                viewModel.modifyPatient(pacienteModificado);
+            }
+        });
+    }
     private void configureView() {
         viewModel = ViewModelProviders.of(getActivity()).get(PacienteViewModel.class);
 

@@ -19,13 +19,13 @@ public class PacienteViewModel extends ViewModel {
 
     private void mockList(){
         List<Paciente> mockList = new ArrayList<>();
-        mockList.add(new Paciente("Paco", 15, true));
-        mockList.add(new Paciente("Marc", 11, false));
-        mockList.add(new Paciente("Toni", 10, true));
-        mockList.add(new Paciente("Sara", 21, false));
-        mockList.add(new Paciente("Alba", 71, true));
-        mockList.add(new Paciente("Tona", 17, false));
-        mockList.add(new Paciente("Lali", 22, false));
+        mockList.add(new Paciente("Paco", 15, true, 1));
+        mockList.add(new Paciente("Marc", 11, false,2));
+        mockList.add(new Paciente("Toni", 10, true, 3));
+        mockList.add(new Paciente("Sara", 21, false,4));
+        mockList.add(new Paciente("Alba", 71, true, 5));
+        mockList.add(new Paciente("Tona", 17, false,6));
+        mockList.add(new Paciente("Lali", 22, false,7));
         pacienteList.setValue(mockList);
     }
 
@@ -51,5 +51,11 @@ public class PacienteViewModel extends ViewModel {
 
     public void setActualPatient(Paciente actualPatient) {
         this.actualPatient.setValue(actualPatient);
+    }
+
+    public void modifyPatient(Paciente paciente){
+        List<Paciente> temporaryList = pacienteList.getValue();
+        
+        pacienteList.setValue(temporaryList);
     }
 }
