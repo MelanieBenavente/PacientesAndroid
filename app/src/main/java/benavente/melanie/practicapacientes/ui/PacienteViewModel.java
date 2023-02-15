@@ -55,7 +55,13 @@ public class PacienteViewModel extends ViewModel {
 
     public void modifyPatient(Paciente paciente){
         List<Paciente> temporaryList = pacienteList.getValue();
-        
+        for (int i = 0; i < pacienteList.getValue().size(); i++)
+        {
+            if (paciente.getId() == pacienteList.getValue().get(i).getId()) {
+                temporaryList.remove(i);
+                temporaryList.add(i, paciente);
+            }
+        }
         pacienteList.setValue(temporaryList);
     }
 }

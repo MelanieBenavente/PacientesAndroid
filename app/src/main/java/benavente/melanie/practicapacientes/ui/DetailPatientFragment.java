@@ -47,6 +47,7 @@ public class DetailPatientFragment extends Fragment {
 
                 );
                 viewModel.modifyPatient(pacienteModificado);
+                getActivity().onBackPressed();
             }
         });
     }
