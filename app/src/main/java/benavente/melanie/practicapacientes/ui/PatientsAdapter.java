@@ -16,10 +16,10 @@ import java.util.List;
 import benavente.melanie.practicapacientes.R;
 import benavente.melanie.practicapacientes.domain.Patient;
 
-public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.ViewHolder> {
+public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHolder> {
     private List<Patient> patients;
     private PatientItemInterface patientItemInterface;
-    public PacientesAdapter(List<Patient> patients, PatientItemInterface patientItemInterface){
+    public PatientsAdapter(List<Patient> patients, PatientItemInterface patientItemInterface){
         this.patients = patients;
         this.patientItemInterface = patientItemInterface;
     }

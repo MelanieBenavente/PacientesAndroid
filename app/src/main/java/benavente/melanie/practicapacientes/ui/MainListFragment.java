@@ -37,7 +37,7 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
         super.onResume();
 
 
-        binding.recyclerPaciente.setAdapter(new PacientesAdapter(viewModel.getpatientList().getValue(), this));
+        binding.recyclerPaciente.setAdapter(new PatientsAdapter(viewModel.getpatientList().getValue(), this));
         binding.recyclerPaciente.setLayoutManager(new GridLayoutManager(getContext(), 3));
         binding.anadirButton.setOnClickListener(new View.OnClickListener() {
             @Override
