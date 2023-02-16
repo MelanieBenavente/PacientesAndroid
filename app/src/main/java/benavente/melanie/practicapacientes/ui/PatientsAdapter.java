@@ -36,31 +36,31 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Patient patientActual = patients.get(position);
-        if (patientActual.getStatus() == true){
-            holder.textViewEstado.setText("Ingresado");
+        Patient actualPatient = patients.get(position);
+        if (actualPatient.getStatus() == true){
+            holder.textViewStatus.setText("Ingresado");
         } else {
-            holder.textViewEstado.setText("No ingresado");
+            holder.textViewStatus.setText("No ingresado");
         }
-        holder.textViewNombre.setText(patientActual.getName());
-        holder.textViewEdad.setText(Integer.toString(patientActual.getAge()));
+        holder.textViewName.setText(actualPatient.getName());
+        holder.textViewAge.setText(Integer.toString(actualPatient.getAge()));
         holder.buttonHistorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                patientItemInterface.showDetailPatient(patientActual);
+                patientItemInterface.showDetailPatient(actualPatient);
             }
         });
         holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                patientItemInterface.deletePatient(patientActual);
+                patientItemInterface.deletePatient(actualPatient);
             }
         });
 
         holder.buttonDuplicate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                patientItemInterface.duplicatePatient(patientActual);
+                patientItemInterface.duplicatePatient(actualPatient);
             }
         });
     }
@@ -74,9 +74,9 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewNombre;
-        TextView textViewEdad;
-        TextView textViewEstado;
+        TextView textViewName;
+        TextView textViewAge;
+        TextView textViewStatus;
         Button buttonHistorial;
         Button buttonDelete;
         Button buttonDuplicate;
@@ -84,9 +84,9 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textViewNombre = itemView.findViewById(R.id.nombrePaciente);
-            textViewEdad = itemView.findViewById(R.id.edadPaciente);
-            textViewEstado = itemView.findViewById(R.id.estadoPaciente);
+            textViewName = itemView.findViewById(R.id.nombrePaciente);
+            textViewAge = itemView.findViewById(R.id.edadPaciente);
+            textViewStatus = itemView.findViewById(R.id.estadoPaciente);
             buttonHistorial = itemView.findViewById(R.id.buttonHistorial);
             buttonDelete = itemView.findViewById(R.id.buttonDelete);
             buttonDuplicate = itemView.findViewById(R.id.buttonDuplicate);
