@@ -8,12 +8,12 @@ import java.util.List;
 
 import benavente.melanie.practicapacientes.domain.Patient;
 
-public class PacienteViewModel extends ViewModel {
+public class PatientViewModel extends ViewModel {
 
     private MutableLiveData<List<Patient>> pacienteList = new MutableLiveData<>();
     private MutableLiveData<Patient> actualPatient = new MutableLiveData<>();
 
-    public PacienteViewModel(){
+    public PatientViewModel(){
         mockList();
     }
 

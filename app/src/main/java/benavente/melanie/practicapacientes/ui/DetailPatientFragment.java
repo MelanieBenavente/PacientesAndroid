@@ -18,7 +18,7 @@ public class DetailPatientFragment extends Fragment {
     //todo private Noseque binding
     private DetailPatientFragmentBinding binding;
 
-    private PacienteViewModel viewModel;
+    private PatientViewModel viewModel;
 
     @Nullable
     @Override
@@ -38,28 +38,28 @@ public class DetailPatientFragment extends Fragment {
         binding.buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Patient patientModificado = new Patient(binding.nombrePaciente.getText().toString(),
+                Patient modifiedPatient = new Patient(binding.patientNameET.getText().toString(),
                         Integer.valueOf(binding.edadPaciente.getText().toString()),
                         binding.checkboxEstado.isChecked(),
                         viewModel.getActualPatient().getValue().getId()
 
                 );
-                viewModel.modifyPatient(patientModificado);
+                viewModel.modifyPatient(modifiedPatient);
                 getActivity().onBackPressed();
             }
         });
     }
     private void configureView() {
-        viewModel = ViewModelProviders.of(getActivity()).get(PacienteViewModel.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
 
         final Observer<Patient> observer = new Observer<Patient>() {
             @Override
-            public void onChanged(Patient paciente) {
-                if (paciente != null) {
+            public void onChanged(Patient patient) {
+                if (patient != null) {
 
-                    binding.nombrePaciente.setText(paciente.getName());
-                    binding.edadPaciente.setText(String.valueOf(paciente.getAge()));
-                    binding.checkboxEstado.setChecked(paciente.getStatus());
+                    binding.patientNameET.setText(patient.getName());
+                    binding.edadPaciente.setText(String.valueOf(patient.getAge()));
+                    binding.checkboxEstado.setChecked(patient.getStatus());
                 }
             }
         };

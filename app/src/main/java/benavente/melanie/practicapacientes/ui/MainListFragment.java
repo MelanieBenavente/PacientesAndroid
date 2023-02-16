@@ -21,7 +21,7 @@ import benavente.melanie.practicapacientes.domain.Patient;
 public class MainListFragment extends Fragment implements PatientItemInterface  {
     private MainListFragmentBinding binding;
 
-    private PacienteViewModel viewModel;
+    private PatientViewModel viewModel;
 
     @Nullable
     @Override
@@ -55,7 +55,7 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
         });
     }
     private void configureView() {
-        viewModel = ViewModelProviders.of(getActivity()).get(PacienteViewModel.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
 
 
         final Observer<List<Patient>> observer = new Observer<List<Patient>>() {
