@@ -43,7 +43,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
             holder.textViewEstado.setText("No ingresado");
         }
         holder.textViewNombre.setText(patientActual.getName());
-        holder.textViewEdad.setText(Integer.toString(patientActual.getEdad()));
+        holder.textViewEdad.setText(Integer.toString(patientActual.getAge()));
         holder.buttonHistorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

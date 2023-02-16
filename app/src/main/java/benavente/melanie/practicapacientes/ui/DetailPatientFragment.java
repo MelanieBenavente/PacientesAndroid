@@ -58,7 +58,7 @@ public class DetailPatientFragment extends Fragment {
                 if (paciente != null) {
 
                     binding.nombrePaciente.setText(paciente.getName());
-                    binding.edadPaciente.setText(String.valueOf(paciente.getEdad()));
+                    binding.edadPaciente.setText(String.valueOf(paciente.getAge()));
                     binding.checkboxEstado.setChecked(paciente.getIngresado());
                 }
             }
