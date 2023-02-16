@@ -14,13 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import benavente.melanie.practicapacientes.R;
-import benavente.melanie.practicapacientes.domain.Paciente;
+import benavente.melanie.practicapacientes.domain.Patient;
 
 public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.ViewHolder> {
-    private List<Paciente> pacientes;
+    private List<Patient> patients;
     private PatientItemInterface patientItemInterface;
-    public PacientesAdapter(List<Paciente> pacientes, PatientItemInterface patientItemInterface){
-        this.pacientes= pacientes;
+    public PacientesAdapter(List<Patient> patients, PatientItemInterface patientItemInterface){
+        this.patients = patients;
         this.patientItemInterface = patientItemInterface;
     }
 
@@ -36,31 +36,31 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Paciente pacienteActual = pacientes.get(position);
-        if (pacienteActual.getIngresado() == true){
+        Patient patientActual = patients.get(position);
+        if (patientActual.getIngresado() == true){
             holder.textViewEstado.setText("Ingresado");
         } else {
             holder.textViewEstado.setText("No ingresado");
         }
-        holder.textViewNombre.setText(pacienteActual.getNombre());
-        holder.textViewEdad.setText(Integer.toString(pacienteActual.getEdad()));
+        holder.textViewNombre.setText(patientActual.getNombre());
+        holder.textViewEdad.setText(Integer.toString(patientActual.getEdad()));
         holder.buttonHistorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                patientItemInterface.showDetailPatient(pacienteActual);
+                patientItemInterface.showDetailPatient(patientActual);
             }
         });
         holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                patientItemInterface.deletePatient(pacienteActual);
+                patientItemInterface.deletePatient(patientActual);
             }
         });
 
         holder.buttonDuplicate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                patientItemInterface.duplicatePatient(pacienteActual);
+                patientItemInterface.duplicatePatient(patientActual);
             }
         });
     }
@@ -69,7 +69,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
 
     @Override
     public int getItemCount(){
-    return pacientes.size();
+    return patients.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

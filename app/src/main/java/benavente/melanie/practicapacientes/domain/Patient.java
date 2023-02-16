@@ -1,13 +1,13 @@
 package benavente.melanie.practicapacientes.domain;
 
-public class Paciente {
+public class Patient {
     private String nombre;
     private int edad;
     private boolean ingresado;
 
     private int id;
 
- public Paciente(String nombre, int edad, boolean ingresado, int id) {
+ public Patient(String nombre, int edad, boolean ingresado, int id) {
      this.nombre = nombre;
      this.edad = edad;
      this.ingresado = ingresado;

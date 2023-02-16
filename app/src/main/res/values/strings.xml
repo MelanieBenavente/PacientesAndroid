@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PracticaPacientes</string>
-    <string name="nombre_paciente">Nombre paciente</string>
-    <string name="edad_paciente">Edad paciente</string>
+    <string name="nombre_paciente">Nombre patient</string>
+    <string name="edad_paciente">Edad patient</string>
     <string name="anadir">Añadir</string>
     <string name="ingresado">Ingresado</string>
 </resources>

@@ -11,10 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import benavente.melanie.practicapacientes.R;
 import benavente.melanie.practicapacientes.databinding.DetailPatientFragmentBinding;
-import benavente.melanie.practicapacientes.databinding.MainListFragmentBinding;
-import benavente.melanie.practicapacientes.domain.Paciente;
+import benavente.melanie.practicapacientes.domain.Patient;
 
 public class DetailPatientFragment extends Fragment {
     //todo private Noseque binding
@@ -40,13 +38,13 @@ public class DetailPatientFragment extends Fragment {
         binding.buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Paciente pacienteModificado = new Paciente(binding.nombrePaciente.getText().toString(),
+                Patient patientModificado = new Patient(binding.nombrePaciente.getText().toString(),
                         Integer.valueOf(binding.edadPaciente.getText().toString()),
                         binding.checkboxEstado.isChecked(),
                         viewModel.getActualPatient().getValue().getId()
 
                 );
-                viewModel.modifyPatient(pacienteModificado);
+                viewModel.modifyPatient(patientModificado);
                 getActivity().onBackPressed();
             }
         });
@@ -54,9 +52,9 @@ public class DetailPatientFragment extends Fragment {
     private void configureView() {
         viewModel = ViewModelProviders.of(getActivity()).get(PacienteViewModel.class);
 
-        final Observer<Paciente> observer = new Observer<Paciente>() {
+        final Observer<Patient> observer = new Observer<Patient>() {
             @Override
-            public void onChanged(Paciente paciente) {
+            public void onChanged(Patient paciente) {
                 if (paciente != null) {
 
                     binding.nombrePaciente.setText(paciente.getNombre());

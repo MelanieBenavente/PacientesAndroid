@@ -31,7 +31,7 @@
         android:id="@+id/checkbox_estado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="El paciente está ingresado"
+        android:text="El patient está ingresado"
         app:layout_constraintTop_toBottomOf="@id/edadPaciente"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

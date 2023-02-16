@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import java.util.List;
 
 import benavente.melanie.practicapacientes.databinding.MainListFragmentBinding;
-import benavente.melanie.practicapacientes.domain.Paciente;
+import benavente.melanie.practicapacientes.domain.Patient;
 
 public class MainListFragment extends Fragment implements PatientItemInterface  {
     private MainListFragmentBinding binding;
@@ -46,7 +46,7 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
                     Toast.makeText(getContext(), "Debes de introducir una edad", Toast.LENGTH_SHORT).show();
 
                 } else {
-                viewModel.addPaciente(new Paciente(binding.editTextNombre.getText().toString(),
+                viewModel.addPaciente(new Patient(binding.editTextNombre.getText().toString(),
                         Integer.valueOf(binding.editTextEdad.getText().toString()),
                         binding.checkboxEstado.isChecked(),
                         viewModel.getpacienteList().getValue().size()+1));
@@ -58,9 +58,9 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
         viewModel = ViewModelProviders.of(getActivity()).get(PacienteViewModel.class);
 
 
-        final Observer<List<Paciente>> observer = new Observer<List<Paciente>>() {
+        final Observer<List<Patient>> observer = new Observer<List<Patient>>() {
             @Override
-            public void onChanged(List<Paciente> pacientes) {
+            public void onChanged(List<Patient> pacientes) {
                 if (pacientes != null && binding.recyclerPaciente != null && binding.recyclerPaciente.getAdapter() != null){
                     binding.recyclerPaciente.getAdapter().notifyDataSetChanged();
                 }
@@ -71,19 +71,19 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
     }
 
     @Override
-    public void showDetailPatient(Paciente paciente) {
-        viewModel.setActualPatient(paciente);
+    public void showDetailPatient(Patient patient) {
+        viewModel.setActualPatient(patient);
         ((MainActivity)getActivity()).nextFragment(new DetailPatientFragment());
     }
 
     @Override
-    public void deletePatient(Paciente paciente) {
-        viewModel.deletePaciente(paciente);
+    public void deletePatient(Patient patient) {
+        viewModel.deletePaciente(patient);
     }
 
     @Override
-    public void duplicatePatient(Paciente paciente) {
-        viewModel.addPaciente(paciente);
+    public void duplicatePatient(Patient patient) {
+        viewModel.addPaciente(patient);
         //binding.recyclerPaciente.getAdapter().notifyItemInserted(viewModel.getpacienteList().getValue().size()-1);
     }
 }

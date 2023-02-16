@@ -6,60 +6,60 @@ import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import benavente.melanie.practicapacientes.domain.Paciente;
+import benavente.melanie.practicapacientes.domain.Patient;
 
 public class PacienteViewModel extends ViewModel {
 
-    private MutableLiveData<List<Paciente>> pacienteList = new MutableLiveData<>();
-    private MutableLiveData<Paciente> actualPatient = new MutableLiveData<>();
+    private MutableLiveData<List<Patient>> pacienteList = new MutableLiveData<>();
+    private MutableLiveData<Patient> actualPatient = new MutableLiveData<>();
 
     public PacienteViewModel(){
         mockList();
     }
 
     private void mockList(){
-        List<Paciente> mockList = new ArrayList<>();
-        mockList.add(new Paciente("Paco", 15, true, 1));
-        mockList.add(new Paciente("Marc", 11, false,2));
-        mockList.add(new Paciente("Toni", 10, true, 3));
-        mockList.add(new Paciente("Sara", 21, false,4));
-        mockList.add(new Paciente("Alba", 71, true, 5));
-        mockList.add(new Paciente("Tona", 17, false,6));
-        mockList.add(new Paciente("Lali", 22, false,7));
+        List<Patient> mockList = new ArrayList<>();
+        mockList.add(new Patient("Paco", 15, true, 1));
+        mockList.add(new Patient("Marc", 11, false,2));
+        mockList.add(new Patient("Toni", 10, true, 3));
+        mockList.add(new Patient("Sara", 21, false,4));
+        mockList.add(new Patient("Alba", 71, true, 5));
+        mockList.add(new Patient("Tona", 17, false,6));
+        mockList.add(new Patient("Lali", 22, false,7));
         pacienteList.setValue(mockList);
     }
 
-    public MutableLiveData<List<Paciente>> getpacienteList(){
+    public MutableLiveData<List<Patient>> getpacienteList(){
         return pacienteList;
     }
 
-    public void addPaciente(Paciente paciente){
-        List<Paciente> temporaryList = pacienteList.getValue();
-        temporaryList.add(paciente);
+    public void addPaciente(Patient patient){
+        List<Patient> temporaryList = pacienteList.getValue();
+        temporaryList.add(patient);
         pacienteList.setValue(temporaryList);
     }
 
-    public void deletePaciente(Paciente paciente){
-        List<Paciente> temporaryList = pacienteList.getValue();
-        temporaryList.remove(paciente);
+    public void deletePaciente(Patient patient){
+        List<Patient> temporaryList = pacienteList.getValue();
+        temporaryList.remove(patient);
         pacienteList.setValue(temporaryList);
     }
 
-    public MutableLiveData<Paciente> getActualPatient() {
+    public MutableLiveData<Patient> getActualPatient() {
         return actualPatient;
     }
 
-    public void setActualPatient(Paciente actualPatient) {
+    public void setActualPatient(Patient actualPatient) {
         this.actualPatient.setValue(actualPatient);
     }
 
-    public void modifyPatient(Paciente paciente){
-        List<Paciente> temporaryList = pacienteList.getValue();
+    public void modifyPatient(Patient patient){
+        List<Patient> temporaryList = pacienteList.getValue();
         for (int i = 0; i < pacienteList.getValue().size(); i++)
         {
-            if (paciente.getId() == pacienteList.getValue().get(i).getId()) {
+            if (patient.getId() == pacienteList.getValue().get(i).getId()) {
                 temporaryList.remove(i);
-                temporaryList.add(i, paciente);
+                temporaryList.add(i, patient);
             }
         }
         pacienteList.setValue(temporaryList);
