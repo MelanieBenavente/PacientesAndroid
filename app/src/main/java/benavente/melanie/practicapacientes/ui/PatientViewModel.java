@@ -29,17 +29,17 @@ public class PatientViewModel extends ViewModel {
         pacienteList.setValue(mockList);
     }
 
-    public MutableLiveData<List<Patient>> getpacienteList(){
+    public MutableLiveData<List<Patient>> getpatientList(){
         return pacienteList;
     }
 
-    public void addPaciente(Patient patient){
+    public void addPatient(Patient patient){
         List<Patient> temporaryList = pacienteList.getValue();
         temporaryList.add(patient);
         pacienteList.setValue(temporaryList);
     }
 
-    public void deletePaciente(Patient patient){
+    public void deletePatient(Patient patient){
         List<Patient> temporaryList = pacienteList.getValue();
         temporaryList.remove(patient);
         pacienteList.setValue(temporaryList);

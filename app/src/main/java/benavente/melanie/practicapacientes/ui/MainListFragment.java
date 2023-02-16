@@ -37,7 +37,7 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
         super.onResume();
 
 
-        binding.recyclerPaciente.setAdapter(new PacientesAdapter(viewModel.getpacienteList().getValue(), this));
+        binding.recyclerPaciente.setAdapter(new PacientesAdapter(viewModel.getpatientList().getValue(), this));
         binding.recyclerPaciente.setLayoutManager(new GridLayoutManager(getContext(), 3));
         binding.anadirButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,10 +46,10 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
                     Toast.makeText(getContext(), "Debes de introducir una edad", Toast.LENGTH_SHORT).show();
 
                 } else {
-                viewModel.addPaciente(new Patient(binding.editTextNombre.getText().toString(),
+                viewModel.addPatient(new Patient(binding.editTextNombre.getText().toString(),
                         Integer.valueOf(binding.editTextEdad.getText().toString()),
                         binding.checkboxEstado.isChecked(),
-                        viewModel.getpacienteList().getValue().size()+1));
+                        viewModel.getpatientList().getValue().size()+1));
                     }
             }
         });
@@ -67,7 +67,7 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
             }
         };
 
-        viewModel.getpacienteList().observe(getActivity(), observer);
+        viewModel.getpatientList().observe(getActivity(), observer);
     }
 
     @Override
@@ -78,12 +78,12 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
 
     @Override
     public void deletePatient(Patient patient) {
-        viewModel.deletePaciente(patient);
+        viewModel.deletePatient(patient);
     }
 
     @Override
     public void duplicatePatient(Patient patient) {
-        viewModel.addPaciente(patient);
+        viewModel.addPatient(patient);
         //binding.recyclerPaciente.getAdapter().notifyItemInserted(viewModel.getpacienteList().getValue().size()-1);
     }
 }
