@@ -1,24 +1,24 @@
 package benavente.melanie.practicapacientes.domain;
 
 public class Patient {
-    private String nombre;
+    private String name;
     private int edad;
     private boolean ingresado;
 
     private int id;
 
- public Patient(String nombre, int edad, boolean ingresado, int id) {
-     this.nombre = nombre;
+ public Patient(String name, int edad, boolean ingresado, int id) {
+     this.name = name;
      this.edad = edad;
      this.ingresado = ingresado;
      this.id = id;
  }
 
- public String getNombre(){
-     return nombre;
+ public String getName(){
+     return name;
  }
-public void setNombre(String nombre){
-     this.nombre = nombre;
+public void setName(String name){
+     this.name = name;
  }
     public int getEdad() {
         return edad;
