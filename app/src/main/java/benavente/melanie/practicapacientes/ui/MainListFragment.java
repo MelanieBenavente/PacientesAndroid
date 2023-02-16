@@ -60,8 +60,8 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
 
         final Observer<List<Patient>> observer = new Observer<List<Patient>>() {
             @Override
-            public void onChanged(List<Patient> pacientes) {
-                if (pacientes != null && binding.recyclerPaciente != null && binding.recyclerPaciente.getAdapter() != null){
+            public void onChanged(List<Patient> patients) {
+                if (patients != null && binding.recyclerPaciente != null && binding.recyclerPaciente.getAdapter() != null){
                     binding.recyclerPaciente.getAdapter().notifyDataSetChanged();
                 }
             }
