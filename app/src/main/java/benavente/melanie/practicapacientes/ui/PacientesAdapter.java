@@ -37,7 +37,7 @@ public class PacientesAdapter extends RecyclerView.Adapter<PacientesAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Patient patientActual = patients.get(position);
-        if (patientActual.getIngresado() == true){
+        if (patientActual.getStatus() == true){
             holder.textViewEstado.setText("Ingresado");
         } else {
             holder.textViewEstado.setText("No ingresado");

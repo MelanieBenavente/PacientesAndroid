@@ -3,14 +3,14 @@ package benavente.melanie.practicapacientes.domain;
 public class Patient {
     private String name;
     private int age;
-    private boolean ingresado;
+    private boolean status;
 
     private int id;
 
- public Patient(String name, int age, boolean ingresado, int id) {
+ public Patient(String name, int age, boolean status, int id) {
      this.name = name;
      this.age = age;
-     this.ingresado = ingresado;
+     this.status = status;
      this.id = id;
  }
 
@@ -26,11 +26,11 @@ public void setName(String name){
 public void setAge(int age) {
      this.age = age;
 }
-    public boolean getIngresado() {
-     return ingresado;
+    public boolean getStatus() {
+     return status;
     }
-public void setIngresado(boolean ingresado){
-     this.ingresado = ingresado;
+public void setStatus(boolean status){
+     this.status = status;
     }
     public int getId() { return id; }
 
