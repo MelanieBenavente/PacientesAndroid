@@ -57,6 +57,14 @@ public class MainListFragment extends Fragment implements PatientItemInterface {
                     }
             }
         });
+
+        binding.goToAddFragmentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               
+                ((MainActivity)getActivity()).nextFragment(new AddPatientFragment());
+            }
+        });
     }
     private void configureView() {
         viewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);

@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <EditText
+        android:id="@+id/edit_text_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombre_paciente"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/edit_text_edad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edad_paciente"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_nombre" />
+
+    <CheckBox
+        android:id="@+id/checkbox_estado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ingresado"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_edad"
+        />
+
+    <Button
+        android:id="@+id/anadirButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Añadir patient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_edad"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
