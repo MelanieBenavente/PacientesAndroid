@@ -1,4 +1,4 @@
-package benavente.melanie.practicapacientes.ui;
+package benavente.melanie.practicapacientes.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import benavente.melanie.practicapacientes.databinding.DetailPatientFragmentBinding;
-import benavente.melanie.practicapacientes.domain.Patient;
+import benavente.melanie.practicapacientes.domain.entity.Patient;
+import benavente.melanie.practicapacientes.ui.viewmodel.PatientViewModel;
 
 public class DetailPatientFragment extends Fragment {
     //todo private Noseque binding

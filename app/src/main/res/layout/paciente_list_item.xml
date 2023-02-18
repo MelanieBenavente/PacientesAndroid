@@ -48,7 +48,7 @@
      tools:text="Edad" />
 
     <TextView
-        android:id="@+id/isLess"
+        android:id="@+id/isNotAdult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Es menor"
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/blue_beaut"
-        app:layout_constraintTop_toBottomOf="@+id/isLess"
+        app:layout_constraintTop_toBottomOf="@+id/isNotAdult"
         tools:text="Ingresado" />
 
     <Button

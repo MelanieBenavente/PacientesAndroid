@@ -1,6 +1,6 @@
-package benavente.melanie.practicapacientes.ui;
+package benavente.melanie.practicapacientes.ui.adapter;
 
-import benavente.melanie.practicapacientes.domain.Patient;
+import benavente.melanie.practicapacientes.domain.entity.Patient;
 
 public interface PatientItemInterface {
     void showDetailPatient(Patient patient);

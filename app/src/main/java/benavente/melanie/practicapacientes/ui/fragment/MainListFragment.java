@@ -1,4 +1,4 @@
-package benavente.melanie.practicapacientes.ui;
+package benavente.melanie.practicapacientes.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,9 +16,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import java.util.List;
 
 import benavente.melanie.practicapacientes.databinding.MainListFragmentBinding;
-import benavente.melanie.practicapacientes.domain.Patient;
+import benavente.melanie.practicapacientes.domain.entity.Patient;
+import benavente.melanie.practicapacientes.ui.activity.MainActivity;
+import benavente.melanie.practicapacientes.ui.adapter.PatientItemInterface;
+import benavente.melanie.practicapacientes.ui.adapter.PatientsAdapter;
+import benavente.melanie.practicapacientes.ui.viewmodel.PatientViewModel;
 
-public class MainListFragment extends Fragment implements PatientItemInterface  {
+public class MainListFragment extends Fragment implements PatientItemInterface {
     private MainListFragmentBinding binding;
 
     private PatientViewModel viewModel;
@@ -82,8 +86,8 @@ public class MainListFragment extends Fragment implements PatientItemInterface  
     }
 
     @Override
-    public void duplicatePatient(Patient patient) {
-        viewModel.addPatient(patient);
+    public void duplicatePatient(Patient nieto) {
+        viewModel.addPatient(nieto);
         //binding.recyclerPaciente.getAdapter().notifyItemInserted(viewModel.getpacienteList().getValue().size()-1);
     }
 }

@@ -1,4 +1,4 @@
-package benavente.melanie.practicapacientes.ui;
+package benavente.melanie.practicapacientes.ui.adapter;
 
 
 import android.content.Context;
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import benavente.melanie.practicapacientes.R;
-import benavente.melanie.practicapacientes.domain.Patient;
+import benavente.melanie.practicapacientes.domain.entity.Patient;
 
 public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHolder> {
     private List<Patient> patients;
@@ -42,10 +42,10 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHo
         } else {
             holder.textViewStatus.setText("No ingresado");
         }
-        if (actualPatient.getAge() < 18) {
-            holder.textViewLess.setVisibility(View.VISIBLE);
+        if (!actualPatient.isAdult()) {
+            holder.textViewisNotAdult.setVisibility(View.VISIBLE);
         } else {
-            holder.textViewLess.setVisibility(View.INVISIBLE);
+            holder.textViewisNotAdult.setVisibility(View.INVISIBLE);
         }
         holder.textViewName.setText(actualPatient.getName());
         holder.textViewAge.setText(Integer.toString(actualPatient.getAge()));
@@ -85,7 +85,7 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHo
         Button buttonHistorial;
         Button buttonDelete;
         Button buttonDuplicate;
-        TextView textViewLess;
+        TextView textViewisNotAdult;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,7 +93,7 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHo
             textViewName = itemView.findViewById(R.id.nombrePaciente);
             textViewAge = itemView.findViewById(R.id.edadPaciente);
             textViewStatus = itemView.findViewById(R.id.estadoPaciente);
-            textViewLess = itemView.findViewById(R.id.isLess);
+            textViewisNotAdult = itemView.findViewById(R.id.isNotAdult);
             buttonHistorial = itemView.findViewById(R.id.buttonHistorial);
             buttonDelete = itemView.findViewById(R.id.buttonDelete);
             buttonDuplicate = itemView.findViewById(R.id.buttonDuplicate);
