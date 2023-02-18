@@ -12,6 +12,7 @@ import benavente.melanie.practicapacientes.domain.usecase.AddPatientUseCase;
 import benavente.melanie.practicapacientes.domain.usecase.DeletePatientUseCase;
 import benavente.melanie.practicapacientes.domain.usecase.MockListPatientUseCase;
 import benavente.melanie.practicapacientes.domain.usecase.ModifyPatientUseCase;
+import benavente.melanie.practicapacientes.domain.usecase.UseCaseProvider;
 
 public class PatientViewModel extends ViewModel {
 
@@ -20,16 +21,13 @@ public class PatientViewModel extends ViewModel {
     private MutableLiveData<Patient> actualPatient = new MutableLiveData<>();
 
     //usecases
-    private MockListPatientUseCase mockListPatientUseCase = new MockListPatientUseCase();
-    private AddPatientUseCase addPatientUseCase = new AddPatientUseCase();
-    private DeletePatientUseCase deletePatientUseCase = new DeletePatientUseCase();
-    private ModifyPatientUseCase modifyPatientUseCase = new ModifyPatientUseCase();
+    private UseCaseProvider useCaseProvider = new UseCaseProvider();
     public PatientViewModel(){
         mockList();
     }
 
     private void mockList(){
-        patientList.setValue(mockListPatientUseCase.executeUseCase(new None()));
+        patientList.setValue(useCaseProvider.getMockListPatientUseCase().executeUseCase(new None()));
     }
 
     public MutableLiveData<List<Patient>> getpatientList(){
@@ -37,11 +35,11 @@ public class PatientViewModel extends ViewModel {
     }
 
     public void addPatient(Patient patient){
-        patientList.setValue(addPatientUseCase.executeUseCase(patient));
+        patientList.setValue(useCaseProvider.getAddPatientUseCase().executeUseCase(patient));
     }
 
     public void deletePatient(Patient patient){
-        patientList.setValue(deletePatientUseCase.executeUseCase(patient));
+        patientList.setValue(useCaseProvider.getDeletePatientUseCase().executeUseCase(patient));
     }
 
     public MutableLiveData<Patient> getActualPatient() {
@@ -53,6 +51,6 @@ public class PatientViewModel extends ViewModel {
     }
 
     public void modifyPatient(Patient patient){
-        patientList.setValue(modifyPatientUseCase.executeUseCase(patient));
+        patientList.setValue(useCaseProvider.getModifyPatientUseCase().executeUseCase(patient));
     }
 }

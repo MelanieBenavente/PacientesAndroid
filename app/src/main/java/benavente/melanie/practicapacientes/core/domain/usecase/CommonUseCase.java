@@ -4,7 +4,11 @@ import benavente.melanie.practicapacientes.data.PatientRepositoryImpl;
 import benavente.melanie.practicapacientes.domain.repository.PatientRepository;
 
 public abstract class CommonUseCase <I, O>{
-    public PatientRepository repository = new PatientRepositoryImpl();
+    public PatientRepository repository;
+
+    public CommonUseCase(PatientRepository patientRepository) {
+        this.repository = patientRepository;
+    }
 
     public abstract O executeUseCase(I input);
 }
