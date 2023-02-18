@@ -4,7 +4,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/grey">
     <EditText
         android:id="@+id/edit_text_nombre"
         android:layout_width="match_parent"

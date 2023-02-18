@@ -16,7 +16,7 @@ import benavente.melanie.practicapacientes.domain.entity.Patient;
 import benavente.melanie.practicapacientes.ui.viewmodel.PatientViewModel;
 
 public class DetailPatientFragment extends Fragment {
-    //todo private Noseque binding
+
     private DetailPatientFragmentBinding binding;
 
     private PatientViewModel viewModel;
