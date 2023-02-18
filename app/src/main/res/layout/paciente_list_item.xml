@@ -48,6 +48,22 @@
      tools:text="Edad" />
 
     <TextView
+        android:id="@+id/isLess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Es menor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edadPaciente"
+        app:layout_constraintBottom_toTopOf="@id/estadoPaciente"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/white"
+        android:background="@color/red"
+        android:padding="5dp"/>
+
+
+    <TextView
         android:id="@+id/estadoPaciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/blue_beaut"
-        app:layout_constraintTop_toBottomOf="@+id/edadPaciente"
+        app:layout_constraintTop_toBottomOf="@+id/isLess"
         tools:text="Ingresado" />
 
     <Button

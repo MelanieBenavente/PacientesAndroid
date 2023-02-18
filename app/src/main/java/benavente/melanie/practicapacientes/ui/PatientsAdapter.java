@@ -42,6 +42,11 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHo
         } else {
             holder.textViewStatus.setText("No ingresado");
         }
+        if (actualPatient.getAge() < 18) {
+            holder.textViewLess.setVisibility(View.VISIBLE);
+        } else {
+            holder.textViewLess.setVisibility(View.INVISIBLE);
+        }
         holder.textViewName.setText(actualPatient.getName());
         holder.textViewAge.setText(Integer.toString(actualPatient.getAge()));
         holder.buttonHistorial.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +85,7 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHo
         Button buttonHistorial;
         Button buttonDelete;
         Button buttonDuplicate;
+        TextView textViewLess;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -87,9 +93,11 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHo
             textViewName = itemView.findViewById(R.id.nombrePaciente);
             textViewAge = itemView.findViewById(R.id.edadPaciente);
             textViewStatus = itemView.findViewById(R.id.estadoPaciente);
+            textViewLess = itemView.findViewById(R.id.isLess);
             buttonHistorial = itemView.findViewById(R.id.buttonHistorial);
             buttonDelete = itemView.findViewById(R.id.buttonDelete);
             buttonDuplicate = itemView.findViewById(R.id.buttonDuplicate);
+
         }
     }
 }
