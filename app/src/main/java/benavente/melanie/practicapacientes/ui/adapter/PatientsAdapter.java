@@ -52,7 +52,7 @@ public class PatientsAdapter extends RecyclerView.Adapter<PatientsAdapter.ViewHo
         holder.buttonHistorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                patientItemInterface.showDetailPatient(actualPatient);
+                patientItemInterface.goToDetailPatient(actualPatient);
             }
         });
         holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
