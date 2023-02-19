@@ -43,20 +43,6 @@ public class MainListFragment extends Fragment implements PatientItemInterface {
 
         binding.recyclerPaciente.setAdapter(new PatientsAdapter(viewModel.getpatientList().getValue(), this));
         binding.recyclerPaciente.setLayoutManager(new GridLayoutManager(getContext(), 3));
-        binding.anadirButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (binding.editTextEdad.getText().toString().equals("")) {
-                    Toast.makeText(getContext(), "Debes de introducir una edad", Toast.LENGTH_SHORT).show();
-
-                } else {
-                viewModel.addPatient(new Patient(binding.editTextNombre.getText().toString(),
-                        Integer.valueOf(binding.editTextEdad.getText().toString()),
-                        binding.checkboxEstado.isChecked(),
-                        viewModel.getpatientList().getValue().size()+1));
-                    }
-            }
-        });
 
         binding.goToAddFragmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,10 +52,10 @@ public class MainListFragment extends Fragment implements PatientItemInterface {
             }
         });
     }
+    //Se asegura de que viewModel no sea nulo
+    //Observamos a un listado de pacientes y cada vez que hay un cambio, notifica al Adapter que hay un cambio
     private void configureView() {
         viewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
-
-
         final Observer<List<Patient>> observer = new Observer<List<Patient>>() {
             @Override
             public void onChanged(List<Patient> patients) {
@@ -78,12 +64,11 @@ public class MainListFragment extends Fragment implements PatientItemInterface {
                 }
             }
         };
-
+        //Observamos al listado del ViewModel y ejecutamos las acciones indicadas antes en el observer
         viewModel.getpatientList().observe(getActivity(), observer);
     }
-
     @Override
-    public void showDetailPatient(Patient patient) {
+    public void goToDetailPatient(Patient patient) {
         viewModel.setActualPatient(patient);
         ((MainActivity)getActivity()).nextFragment(new DetailPatientFragment());
     }

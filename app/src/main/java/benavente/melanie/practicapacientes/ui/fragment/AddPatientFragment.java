@@ -32,7 +32,9 @@ public class AddPatientFragment extends Fragment {
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
                 binding = AddPatientFragmentBinding.inflate(getLayoutInflater());
                 View view = binding.getRoot();
+                //Instanciamos el viewModel
                 configureView();
+                initListeners();
                 return view;
         }
 
@@ -40,30 +42,34 @@ public class AddPatientFragment extends Fragment {
         public void onResume() {
                 super.onResume();
 
-        binding.anadirButton.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View view) {
-                        //si el campo está vacío
-                        if (binding.editTextEdad.getText().toString().equals("")) {
-                                Toast.makeText(getContext(), "Debes introducir una edad", Toast.LENGTH_SHORT).show();
-                         //si no está vacío
-                        } else {
-                        viewModel.addPatient(new Patient(binding.editTextNombre.getText().toString(),
-                                Integer.valueOf(binding.editTextEdad.getText().toString()),
-                                binding.checkboxEstado.isChecked(),
-                                viewModel.getpatientList().getValue().size()+1));
-                                getActivity().onBackPressed();
-                        }
-
-                }
-
-        });
         }
         private void configureView() {
+                //En este caso no utilizamos el observer porque no hay que pintar datos en pantalla. Solamente nos aseguramos de que viewModel no sea nulo.
                 viewModel = ViewModelProviders.of(getActivity()).get(PatientViewModel.class);
 
         }
 
-
+        private void initListeners() {
+                binding.anadirButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                                //Programación defensiva
+                                //si el campo está vacío
+                                if (binding.editTextEdad.getText().toString().equals("")) {
+                                        Toast.makeText(getContext(), "Debes introducir una edad", Toast.LENGTH_SHORT).show();
+                                        //si no está vacío
+                                        //todo Comprobar que "edad" no sea una letra
+                                        //todo Comprobar que "nombre" no esté vacío
+                                        //Fin programación defensiva
+                                } else {
+                                        viewModel.addPatient(new Patient(binding.editTextNombre.getText().toString(),
+                                                Integer.valueOf(binding.editTextEdad.getText().toString()),
+                                                binding.checkboxEstado.isChecked(),
+                                                viewModel.getpatientList().getValue().size()+1));
+                                        getActivity().onBackPressed();
+                                }
+                        }
+                });
+        }
 }
