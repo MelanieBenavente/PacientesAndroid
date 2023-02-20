@@ -10,14 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/nombre_paciente"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <EditText
         android:id="@+id/edit_text_edad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/edad_paciente"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_nombre" />
+        app:layout_constraintTop_toBottomOf="@id/edit_text_nombre"
+        />
 
     <CheckBox
         android:id="@+id/checkbox_estado"

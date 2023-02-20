@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 import java.util.List;
 
+import benavente.melanie.practicapacientes.core.domain.Utils;
 import benavente.melanie.practicapacientes.databinding.AddPatientFragmentBinding;
 import benavente.melanie.practicapacientes.domain.entity.Patient;
 import benavente.melanie.practicapacientes.ui.activity.MainActivity;
@@ -58,10 +59,14 @@ public class AddPatientFragment extends Fragment {
                                 //si el campo está vacío
                                 if (binding.editTextEdad.getText().toString().equals("")) {
                                         Toast.makeText(getContext(), "Debes introducir una edad", Toast.LENGTH_SHORT).show();
-                                        //si no está vacío
-                                        //todo Comprobar que "edad" no sea una letra
-                                        //todo Comprobar que "nombre" no esté vacío
-                                        //Fin programación defensiva
+                                //si no está vacío
+                                //Fin programación defensiva
+                                } else if (binding.editTextNombre.getText().toString().equals("")) {
+                                        Toast.makeText(getContext(), "Debes introducir un nombre", Toast.LENGTH_SHORT).show();
+                                } else if (! Utils.isNumeric(binding.editTextEdad.getText().toString())) {
+                                        Toast.makeText(getContext(), "El carácter introducido debe ser un número", Toast.LENGTH_SHORT).show();
+                                } else if (Utils.isNumeric(binding.editTextNombre.getText().toString())) {
+                                        Toast.makeText(getContext(), "El nombre no puede contener números", Toast.LENGTH_SHORT).show();
                                 } else {
                                         viewModel.addPatient(new Patient(binding.editTextNombre.getText().toString(),
                                                 Integer.valueOf(binding.editTextEdad.getText().toString()),

@@ -5,7 +5,6 @@ public class Patient {
     private String name;
     private int age;
     private boolean status;
-
     private int id;
 
     public Patient(String name, int age, boolean status, int id) {
