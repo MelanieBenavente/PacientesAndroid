@@ -13,6 +13,8 @@
         android:layout_marginTop="210dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="text"
+        android:imeOptions="actionNext"
         android:textColor="@color/blue_beaut"
         android:text="Nombre" />
 
@@ -24,6 +26,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/checkbox_estado"
         app:layout_constraintTop_toBottomOf="@id/patientNameET"
+        android:inputType="number"
+        android:imeOptions="actionDone"
         android:layout_marginTop="20dp"
         android:textColor="@color/blue_beaut"
         android:text="Edad" />
