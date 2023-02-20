@@ -36,6 +36,7 @@ public class DetailPatientFragment extends Fragment {
     }
 
     private void initListeners() {
+        binding.patientNameET.requestFocus();
         binding.buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
